@@ -1,0 +1,94 @@
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgba(199, 242, 255, 0.26);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+}
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #444;
+  transition: background-color 0.3s;
+}
+header nav a:hover {
+  background-color: #555;
+}
+header nav a.active {
+  background-color: #555;
+}
+header .user-navbar {
+  border-radius: 5px;
+}
+header .user-navbar a {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #5865F2; /* Discord Blurple */
+  transition: background-color 0.3s;
+}
+header .user-navbar a img {
+  height: auto;
+  width: 20px;
+  margin-right: 5px;
+}
+header .user-navbar a:hover {
+  background-color: #4552b8; /* Darker Discord Blurple Hover */
+}
+header .user-navbar a.active {
+  background-color: #4552b8; /* Darker Discord Blurple Active */
+}
+
+main {
+  padding: 10vh 5vw 0 5vw;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8,%7B%22version%22:3,%22sourceRoot%22:%22%22,%22sources%22:%5B%22../../index.scss%22%5D,%22names%22:%5B%5D,%22mappings%22:%22AAAA;EACE;EACA;EACA;EACA;;;AAGF;EACE;;;AAGF;EACE;EACA;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;;AAEF;EACE;;AAEF;EACE;;AAGJ;EACE;;AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;EACA;;AACA;EACE;EACA;EACA;;AAEF;EACE;;AAEF;EACE;;;AAMR;EACE;;;AAGF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA%22,%22file%22:%22index.css%22%7D */
