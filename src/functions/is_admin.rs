@@ -4,7 +4,7 @@ use reqwest;
 pub async fn is_admin() -> bool {
     let client = reqwest::Client::new();
 
-    let response = client.get("https://rust-guild-api-kvdl.shuttle.app/") // Replace with your actual endpoint
+    let response = client.get("https://rust-guild-api-kvdl.shuttle.app/api/v1/") // Replace with your actual endpoint
         .send()
         .await;
 

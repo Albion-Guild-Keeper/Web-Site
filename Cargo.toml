@@ -16,3 +16,5 @@ sycamore-reactive = "0.9.1"
 sycamore-router-macro = "0.9.1"
 gloo-net = { version = "0.6.0", features = ["http"] }
 reqwest = { version = "0.12.12", features = ["blocking"] }
+cookie-rs = "0.4.0"
+actix = "0.13.5"

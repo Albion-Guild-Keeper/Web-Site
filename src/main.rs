@@ -1,17 +1,29 @@
+use cookie_rs::{cookie::SameSite, Cookie, CookieJar};
 use sycamore::prelude::*;
 use sycamore_router::{HistoryIntegration, Router};
 use sycamore_rstml::html;
 
 mod components;
+mod functions;
 mod pages;
 mod routes;
-mod functions;
 
 use routes::{admin::AdminRoutes, app::AppRoutes};
 
 use components::{footer::Footer, header::header::Header};
 
-use pages::{about::about_page, home::home_page, not_found::not_found_page, admin::home::admin_home_page};
+use pages::{
+    about::about_page, admin::home::admin_home_page, home::home_page, not_found::not_found_page,
+};
+
+fn test_cookie() {
+    let cookie = Cookie::new("test", "test").with_path("/");
+    let mut jar = CookieJar::default();
+
+    jar.add(cookie.clone());
+
+    cookie.with_same_site(SameSite::Lax);
+}   
 
 #[component]
 fn App() -> View {
@@ -41,5 +53,6 @@ fn App() -> View {
 }
 
 fn main() {
+    test_cookie();
     sycamore::render(App);
 }

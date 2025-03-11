@@ -1,9 +1,8 @@
-use sycamore::prelude::*;
-use sycamore_rstml::html;
-use sycamore::web::View;
 use gloo_net::http::Request;
 use serde::{Deserialize, Serialize};
-use sycamore_web::Suspense;
+use sycamore::prelude::*;
+use sycamore::web::View;
+use sycamore_rstml::html;
 
 use crate::components::header::user_navbar::UserNavbar;
 
@@ -19,7 +18,7 @@ impl Default for AdminCheck {
 }
 
 async fn fetch_is_admin() -> Result<AdminCheck, gloo_net::Error> {
-    let url = "http://localhost:8000/api/v1/"; // Replace with your API endpoint
+    let url = "https://rust-guild-api-kvdl.shuttle.app/api/v1/";
     let resp = Request::get(url).send().await?;
 
     resp.json::<AdminCheck>().await
@@ -27,7 +26,7 @@ async fn fetch_is_admin() -> Result<AdminCheck, gloo_net::Error> {
 
 #[component]
 pub async fn Navbar() -> View {
-    let admin_check = fetch_is_admin().await.unwrap_or_default();
+    let admin_check = fetch_is_admin().await.unwrap_or_else(|_| AdminCheck::default());
     console_log!("{:?}", admin_check.is_admin);
 
     html! {
