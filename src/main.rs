@@ -1,30 +1,17 @@
 use sycamore::prelude::*;
-use sycamore_router::{HistoryIntegration, Route, Router};
+use sycamore_router::{HistoryIntegration, Router};
 use sycamore_rstml::html;
 
-mod pages;
 mod components;
+mod pages;
+mod routes;
+mod functions;
 
-use components::{
-    header::header::Header,
-    footer::Footer,
-};
+use routes::{admin::AdminRoutes, app::AppRoutes};
 
-use pages::{
-    about::about_page,
-    home::home_page,
-    not_found::not_found_page,
-};
+use components::{footer::Footer, header::header::Header};
 
-#[derive(Route, Clone, Copy)]
-enum AppRoutes {
-    #[to("/")]
-    Home,
-    #[to("/about")]
-    About,
-    #[not_found]
-    NotFound,
-}
+use pages::{about::about_page, home::home_page, not_found::not_found_page, admin::home::admin_home_page};
 
 #[component]
 fn App() -> View {
@@ -37,6 +24,13 @@ fn App() -> View {
                     <main class="app"> {match route.get() {
                         AppRoutes::Home => home_page(),
                         AppRoutes::About => about_page(),
+                        AppRoutes::Admin(route) => {
+                            match route {
+                                AdminRoutes::Home => admin_home_page(),
+                                AdminRoutes::Console => admin_home_page(),
+                                AdminRoutes::NotFound => not_found_page(),
+                            }
+                        }
                         AppRoutes::NotFound => not_found_page(),
                     }}</main>
                     <Footer />

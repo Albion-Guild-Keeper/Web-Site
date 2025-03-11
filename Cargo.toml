@@ -4,6 +4,15 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sycamore = "0.9.1"
-sycamore-router = "0.9.1"
+serde = { version = "1.0.130", features = ["derive"] }
+sycamore = { version = "0.9.1", features = ["suspense"] } # usato
+sycamore-router = "0.9.1" # usato
 sycamore-rstml = { path = "sycamore_rstml" }
+sycamore-web = "0.9.1"
+sycamore-core = "0.9.1"
+sycamore-futures = "0.9.1"
+sycamore-macro = "0.9.1"
+sycamore-reactive = "0.9.1"
+sycamore-router-macro = "0.9.1"
+gloo-net = { version = "0.6.0", features = ["http"] }
+reqwest = { version = "0.12.12", features = ["blocking"] }
