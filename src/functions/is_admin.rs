@@ -1,19 +1,20 @@
-use reqwest;
+use serde::{Deserialize, Serialize};
+use gloo_net::http::Request;
 
-#[allow(dead_code)]
-pub async fn is_admin() -> bool {
-    let client = reqwest::Client::new();
+#[derive(Serialize, Deserialize, Debug, Clone, Copy)]
+pub struct IsAdmin {
+    pub is_admin: bool,
+}
 
-    let response = client.get("https://rust-guild-api-kvdl.shuttle.app/api/v1/") // Replace with your actual endpoint
-        .send()
-        .await;
-
-    match response {
-        Ok(response) => {
-            let body = response.text().await.unwrap_or_default();
-            let result = body == "admin";
-            result
-        }
-        Err(_) => false,
+impl Default for IsAdmin {
+    fn default() -> Self {
+        Self { is_admin: false }
     }
+}
+
+pub async fn is_admin() -> Result<IsAdmin, gloo_net::Error> {
+    let url = "http://localhost:8000/api/v1/";
+    let resp = Request::get(url).send().await?;
+
+    resp.json::<IsAdmin>().await
 }

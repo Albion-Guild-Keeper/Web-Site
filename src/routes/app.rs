@@ -4,6 +4,8 @@ use crate::routes::admin::AdminRoutes;
 
 #[derive(Route, Clone, Copy)]
 pub enum AppRoutes {
+    #[to("/login")]
+    Login,
     #[to("/")]
     Home,
     #[to("/about")]
