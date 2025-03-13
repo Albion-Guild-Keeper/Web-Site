@@ -1,5 +1,6 @@
 use sycamore::prelude::*;
 use sycamore_rstml::html;
+use gloo_net::http::Request;
 
 use crate::functions::is_auth::is_auth;
 
@@ -20,11 +21,16 @@ pub async fn Login() -> View {
     // <input bind:value=input on:keydown=on_keydown /> @todo interessante per fare qualcosa quando si preme invio
 
     let handle_login = move |_| {
-        console_log!("Login clicked");
+        sycamore::futures::spawn_local(async move {
+            console_log!("Login clicked");
+            let url = "http://localhost:8000/api/v1/test";
+            let resp = Request::get(url).send().await.unwrap();
+            console_log!("Response: {:?}", resp);
 
-        console_log!("Input: {:?}", input);
+            console_log!("Input: {:?}", input);
+        });
     };
-    
+
     html! {
         <article>
             <input bind:value=input />
