@@ -5,7 +5,7 @@ use gloo_net::http::Request;
 use crate::functions::is_auth::is_auth;
 
 #[component]
-pub async fn Login() -> View {
+pub async fn SignIn() -> View {
     let result = is_auth().await.unwrap();
     console_log!("{:?}", result);
     
