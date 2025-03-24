@@ -7,10 +7,7 @@ const LOGIN_URL: &str = "https://discord.com/oauth2/authorize?client_id=12483086
 pub fn UserNavbar() -> View {
     html! {
     <section class="user-navbar">
-        <a href=LOGIN_URL>
-            <img src="https://img.icons8.com/ios11/512/FFFFFF/discord-logo.png" alt="Discord Logo" />
-            <span>Login with Discord</span>
-        </a>
+       
     </section>    
     }
 }

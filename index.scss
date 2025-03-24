@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 * {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,12 +29,14 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   nav {
     background-color: #333;
     color: #fff;
     text-align: center;
     display: flex;
     gap: 10px;
+
     a {
       color: #fff;
       text-decoration: none;
@@ -36,37 +45,13 @@ header {
       background-color: #444;
       transition: background-color 0.3s;
     }
+
     a:hover {
       background-color: #555;
     }
+
     a.active {
       background-color: #555;
-    }
-  }
-  .user-navbar {
-    border-radius: 5px;
-    a {
-      align-items: center;
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      text-decoration: none;
-      padding: 10px;
-      border-radius: 5px;
-      background-color: #5865F2; /* Discord Blurple */
-      transition: background-color 0.3s;
-      img {
-        height: auto;
-        width: 20px;
-        margin-right: 5px;
-      }
-      &:hover {
-        background-color: #4552b8; /* Darker Discord Blurple Hover */
-      }
-      &.active {
-        background-color: #4552b8; /* Darker Discord Blurple Active */
-      }
     }
   }
 }
@@ -84,4 +69,61 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
+}
+
+/* Sign IN Container */
+.sign-in-container {
+  dialog {
+    border: 0;
+    border-radius: 10px;
+    background-color: #232428;
+    padding: 100px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    .login-with-discord {
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      gap: 5vh;
+      h1 {
+        font-weight: 600;
+      }
+      a {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        text-decoration: none;
+        padding: 15px 40px;
+        font-weight: 700;
+        border-radius: 5px;
+        background-color: #4752C4;
+        /* Discord Blurple */
+        transition: background-color 0.3s;
+        img {
+          height: auto;
+          width: 20px;
+          margin-right: 10px;
+        }
+        &:hover {
+          background-color: #3d47b1;
+          /* Darker Discord Blurple Hover */
+        }
+        &.active {
+          background-color: #4752C4;
+          /* Darker Discord Blurple Active */
+        }
+      }
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
 }
