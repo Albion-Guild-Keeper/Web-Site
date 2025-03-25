@@ -1,17 +1,28 @@
 [package]
-name = "sycamore"
+name = "Dioxus"
 version = "0.1.0"
+authors = ["tacosalfornoh <alexbrugamer@gmailcom>"]
 edition = "2021"
 
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
 [dependencies]
-serde = { version = "1.0.130", features = ["derive"] } # usato
-sycamore = { version = "0.9.1", features = ["suspense"] } # usato
-sycamore-router = "0.9.1" # usato
-sycamore-rstml = { path = "sycamore_rstml" } # usato
-sycamore-web = "0.9.1" # usato
-sycamore-core = "0.9.1"
-sycamore-futures = "0.9.1"
-sycamore-macro = "0.9.1"
-sycamore-reactive = "0.9.1"
-sycamore-router-macro = "0.9.1"
-gloo-net = { version = "0.6.0", features = ["http"] } # usato
+dioxus = { version = "0.6.0", features = ["router"] }
+
+[features]
+default = ["web"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
+
+[profile]
+
+[profile.wasm-dev]
+inherits = "dev"
+opt-level = 1
+
+[profile.server-dev]
+inherits = "dev"
+
+[profile.android-dev]
+inherits = "dev"
