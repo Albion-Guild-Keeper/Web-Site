@@ -1,19 +1,7 @@
-# Development
+# Tauri + Sycamore
 
-Your new bare-bones project includes minimal organization with a single `main.rs` file and a few assets.
+This template should help get you started developing with Tauri and Sycamore.
 
+## Recommended IDE Setup
 
-
-### Serving Your App
-
-Run the following command in the root of your project to start developing with the default platform:
-
-```bash
-dx serve
-```
-
-To run for a different platform, use the `--platform platform` flag. E.g.
-```bash
-dx serve --platform desktop
-```
-
+[VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer).
