@@ -1,5 +1,4 @@
-/dist
 /target
-Cargo.lock
-.vscode
-.taurignore
+Secrets*.toml
+/dist
+/templates

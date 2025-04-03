@@ -1,6 +1,4 @@
-pub mod footer;
-pub mod header;
-pub mod auth;
-pub mod home;
-pub mod not_found;
-pub mod navigation;
+pub mod footer_component;
+pub mod header_component;
+pub mod login_button_component;
+pub mod login_dialog_component;

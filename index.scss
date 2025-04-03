@@ -1,105 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-:root {
-  --dark-background: #232428;
-  --dark-gray-background: #2F3136;
-  --gray-background: #36393F;
-  --light-gray-background: #4F545C;
-  --white: white;
-  --black: black;
-  --gray: #949BA4;
-  --gold: #B7950B;
-  --green: #6FC447;
-  --red: #C44747;
-  --blue: #4752C4;
-  --yellow: #C4A347;
-}
-
 * {
-  font-family: "Noto Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 html {
-  background-color: var(--gray-background);
+  background-color: rgba(199, 242, 255, 0.26);
+}
 
-  #body {
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  nav {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
     display: flex;
-    flex-direction: row;
-
-    nav {
-      background-color: var(--dark-gray-background);
-      height: 100dvh;
-      z-index: 1;
-      
-      ul {
-        padding: 5px;
-        list-style-type: none;
-        width: 12dvw;
-
-        span {
-          color: var(--gold);
-          font-size: 0.7em;
-          font-weight: 600;
-        }
-
-        li {
-          border-radius: 15px;
-          padding: 5px;
-
-          &:hover {
-            background-color: var(--gray-background);
-            cursor: pointer;
-          }
-        }
-
-        &#section1 {
-          padding: 20px;
-
-          li {
-            a {
-              color: var(--white);
-              text-decoration: none;
-            }
-          }
-        }
-
-        &#section2 {
-          padding: 20px;
-
-          li {
-            a {
-              color: var(--white);
-              text-decoration: none;
-            }
-          }
-        }
-      }
-
-      li:hover {
-        background-color: red;
-        cursor: poiner;
-      }
+    gap: 10px;
+    a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #444;
+      transition: background-color 0.3s;
     }
-
-    main {
-      padding: 80px;
+    a:hover {
+      background-color: #555;
+    }
+    a.active {
+      background-color: #555;
+    }
+  }
+  .user-navbar {
+    border-radius: 5px;
+    a {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #5865F2; /* Discord Blurple */
+      transition: background-color 0.3s;
+      img {
+        height: auto;
+        width: 20px;
+        margin-right: 5px;
+      }
+      &:hover {
+        background-color: #4552b8; /* Darker Discord Blurple Hover */
+      }
+      &.active {
+        background-color: #4552b8; /* Darker Discord Blurple Active */
+      }
     }
   }
 }
 
-@import "public/assets/scss/header.scss";
-
+main {
+  padding: 10vh 5vw 0 5vw;
+}
 
 footer {
-  background-color: var(--dark-background);
+  background-color: #333;
   color: #fff;
   text-align: center;
   padding: 5px;
@@ -109,66 +86,37 @@ footer {
   width: 100%;
 }
 
-/* Sign IN Container */
-.sign-in-container {
-  dialog {
-    border: 0;
-    border-radius: 10px;
-    background-color: var(--dark-background);
-    padding: 100px;
+
+dialog {
+  &.open {
+    display: block;
+  }
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  &#login-dialog {
+    z-index: 1001;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    .login-with-discord {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 300px;
+    max-width: 80%;
+    button {
+      background-color: #5865F2; /* Discord Blurple */
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
       border-radius: 5px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: var(--white);
-      gap: 5vh;
-
-      h1 {
-        font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: #4552b8; /* Darker Discord Blurple Hover */
       }
-
-      a {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        text-align: center;
-        color: var(--white);
-        text-decoration: none;
-        padding: 15px 40px;
-        font-weight: 700;
-        border-radius: 5px;
-        background-color: var(--blue);
-        /* Discord Blurple */
-        transition: background-color 0.3s;
-
-        img {
-          height: auto;
-          width: 20px;
-          margin-right: 10px;
-        }
-
-        &:hover {
-          background-color: var(--dark-gray-background);
-          /* Darker Discord Blurple Hover */
-        }
-
-        &.active {
-          background-color: var(--blue);
-          /* Darker Discord Blurple Active */
-        }
-      }
-    }
-
-    p {
-      font-size: 0.8rem;
     }
   }
 }
